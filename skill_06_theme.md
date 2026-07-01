@@ -31,15 +31,54 @@ Container(color: AppColorsPalette.yellow400)
 ```
 *(Colors like `yellow400`, `gray300`, `black` are defined as static constants in `app_colors_palette.dart`)*
 
-## 3. Text Palette
-Text styles are managed through `AppTextPalette`. It defines specific semantics like `headline1`, `body1`, etc.
+## 3. App Typography
+Text styles are managed through `AppTypography`. It defines specific semantics like code bewlow etc.
+
+```
+
+abstract final class AppTypography {
+  
+  // Font families
+  static const String roundedMplus1c = 'Rounded Mplus 1c';
+  static const String goldmanSans = 'Goldman Sans';
+  static const String lilitaOne = 'Lilita One';
+
+  // --- Rounded Mplus 1c ---
+
+  // Size 10
+  static const TextStyle roundedMplus1c10ExtraBold = _AppTextStyle(
+    fontFamily: roundedMplus1c,
+    fontSize: 10,
+    fontWeight: FontWeight.w800,
+    fontVariations: AppFontVariations.w800,
+  );
+
+  // Size 12
+  static const TextStyle roundedMplus1c12ExtraBold = _AppTextStyle(
+    fontFamily: roundedMplus1c,
+    fontSize: 12,
+    fontWeight: FontWeight.w800,
+    fontVariations: AppFontVariations.w800,
+  );
+}
+
+class _AppTextStyle extends TextStyle {
+  const _AppTextStyle({
+    required super.fontFamily,
+    required super.fontSize,
+    required super.fontWeight,
+    required super.fontVariations,
+  });
+}
+
+```
 
 ```dart
 // Example usage:
 Text(
   'Total Coins',
-  style: AppTextPalette.textTheme.headlineMedium?.copyWith(
-    color: AppColorsPalette.white,
+  style: AppTypography.roundedMplus1c10ExtraBold.copyWith(
+    color: AppColorsPalette.blue,
   ),
 )
 ```
